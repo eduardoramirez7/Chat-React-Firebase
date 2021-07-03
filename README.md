@@ -1,3 +1,9 @@
+# PASOS PARA LA CREACION DEL CHAT
+
+1. Agregar los paquetes para react: yarn add react-router-dom firebase
+2. Iniciar aplicacion: yarn start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
