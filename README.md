@@ -3,7 +3,8 @@
 1. Agregar los paquetes para react: yarn add react-router-dom firebase
 2. Iniciar aplicacion: yarn start
 3. Crear la estructura de carpetas
-4. abrir services/firebase.js
+4. abrir services/firebase.js y realizar las configuraciones
+5. Crear carpeta routers para la creacion de rutas privadas y publicas
 
 
 # Getting Started with Create React App
