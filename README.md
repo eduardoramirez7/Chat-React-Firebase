@@ -5,6 +5,7 @@
 3. Crear la estructura de carpetas
 4. abrir services/firebase.js y realizar las configuraciones
 5. Crear carpeta routers para la creacion de rutas privadas y publicas
+6. Se crea components/App.js para realizar la configuracion de autenticacion
 
 
 # Getting Started with Create React App
