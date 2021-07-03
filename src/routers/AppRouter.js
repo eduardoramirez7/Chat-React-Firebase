@@ -1,18 +1,21 @@
-import { Route, Router, Switch } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
+import { Component } from "react";
+import { Router, Switch } from "react-router-dom";
+import Signup from "../pages/Signup";
+import Chat from "../pages/Chat";
 import PublicRoute from "./PublicRoute";
 
-export default function AppRouter() {
+export default class AppRouter extends Component {
 
-        return this.state.loading === true ? <h2>Loading...</h2> : (
-            <h1></h1>
-         /*  <Router>
-            <Switch>
-              <Route exact path="/" component={Home}></Route>
-              <PrivateRoute path="/chat" authenticated={this.state.authenticated} component={Chat}></PrivateRoute>
-              <PublicRoute path="/signup" authenticated={this.state.authenticated} component={Signup}></PublicRoute>
-              <PublicRoute path="/login" authenticated={this.state.authenticated} component={Login}></PublicRoute>
-            </Switch>
-          </Router> */
-        );
+  render() {
+    return this.state.loading === true ? <h2>Loading...</h2> : (
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <PrivateRoute path="/chat" authenticated={this.state.authenticated} component={Chat}></PrivateRoute>
+          <PublicRoute path="/signup" authenticated={this.state.authenticated} component={Signup}></PublicRoute>
+          <PublicRoute path="/login" authenticated={this.state.authenticated} component={Login}></PublicRoute>
+        </Switch>
+      </Router>
+    );
+  }
 }
