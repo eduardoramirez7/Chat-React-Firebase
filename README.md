@@ -2,6 +2,7 @@
 
 1. Agregar los paquetes para react: yarn add react-router-dom firebase
 2. Iniciar aplicacion: yarn start
+3. Crear la estructura de carpetas
 
 
 # Getting Started with Create React App
