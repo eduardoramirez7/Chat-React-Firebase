@@ -4,7 +4,7 @@ import { signup } from '../helpers/auth';
 import { signInWithGoogle, signInWithGitHub } from "../helpers/auth";
 import '../styles/Signup.css';
 import { Jumbotron, Button, Form, Col } from 'react-bootstrap';
-
+import logo from '../images/cht.png'
 
 export default class SignUp extends Component {
 
@@ -62,9 +62,7 @@ export default class SignUp extends Component {
                         <Form onSubmit={this.handleSubmit}>
                             <div className="form-input">
                                 <Form.Group>
-                                    <h1>
-                                        Registrate en
-                                        <Link to="/"> ChatLine</Link>
+                                    <h1>Registrate en<Link to="/"> ChatLine <img src={logo} width="100" /></Link>
                                     </h1>
                                     <p>Ingresa tus datos para crear tu cuenta.</p>
                                 </Form.Group>
@@ -82,8 +80,6 @@ export default class SignUp extends Component {
 
                                 </Form.Group>
                             </div>
-
-
 
                             <div class="buttons">
                                 <row>

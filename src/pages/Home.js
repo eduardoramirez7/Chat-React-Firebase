@@ -11,7 +11,6 @@ export default class Home extends Component {
 
             <div>
                 <div class="jumbotron" className="container center">
-
                     <Jumbotron>
                         <img src={logo} width="100"/>
                         <h1 className='display-4'>Bienvenido a ChatLine</h1>

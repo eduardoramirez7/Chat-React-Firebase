@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { Col, Form, FormControl, Jumbotron, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { signin, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
+import '../styles/Login.css';
+import logo from '../images/cht.png'
 
 export default class Login extends Component {
   constructor(props) {
@@ -33,48 +36,45 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        <form
-          autoComplete="off"
-          onSubmit={this.handleSubmit}
-        >
-          <h1>
-            Login to
-            <Link to="/">
-              Chatty
-            </Link>
-          </h1>
-          <p>
-            Fill in the form below to login to your account.
-          </p>
-          <div>
-            <input
-              placeholder="Email"
-              name="email"
-              type="email"
-              onChange={this.handleChange}
-              value={this.state.email}
-            />
-          </div>
-          <div>
-            <input
-              placeholder="Password"
-              name="password"
-              onChange={this.handleChange}
-              value={this.state.password}
-              type="password"
-            />
-          </div>
-          <div>
-            {this.state.error ? (
-              <p>{this.state.error}</p>
-            ) : null}
-            <button type="submit">Login</button>
-          </div>
-          <hr />
-          <p>
-            Don't have an account? <Link to="/signup">Sign up</Link>
-          </p>
-        </form>
+        <div class="jumbotron" className="container center">
+          <Jumbotron>
+            <Form autoComplete="off" onSubmit={this.handleSubmit}>
+              <div className="form-group-login">
+
+                <Form.Group>
+                  <row>
+                    <h1>Inicio de Sesión en<Link to="/"> ChatLine <img src={logo} width="100" /></Link>
+                    </h1>
+                    <p>Ingresa los datos de tu cuenta registrada.</p>
+                  </row>
+
+                </Form.Group>
+
+                <Form.Group>
+                  <Col sm={7}>
+                    <Form.Control id="form-input" placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email} />
+                  </Col>
+                </Form.Group>
+
+                <Form.Group>
+                  <Col sm={7}>
+                    <Form.Control id="form-input" placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password" />
+                  </Col>
+                </Form.Group>
+
+              </div>
+              <div>
+                {this.state.error ? (
+                  <p>{this.state.error}</p>
+                ) : null}
+                <Button type="submit">Iniciar Sesión</Button>
+              </div>
+              <hr />
+              <p>No tienes una cuenta? <Link to="/signup">Registrate</Link></p>
+            </Form>
+          </Jumbotron>
+        </div>
+
       </div>
     );
   }
