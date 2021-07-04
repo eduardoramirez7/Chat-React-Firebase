@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../helpers/auth';
-import { signin, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
+import { signInWithGoogle, signInWithGitHub } from "../helpers/auth";
 
 
 export default class SignUp extends Component {
