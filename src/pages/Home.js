@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Jumbotron } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import '../styles/Home.css';
 import logo from '../images/cht.png'
@@ -10,7 +9,7 @@ export default class Home extends Component {
     render() {
         return (
 
-            <div class="container">
+            <div>
                 <div class="jumbotron" className="container center">
 
                     <Jumbotron>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../helpers/auth';
 import { signInWithGoogle, signInWithGitHub } from "../helpers/auth";
+import '../styles/Signup.css';
+import { Jumbotron, Button, Form, Col } from 'react-bootstrap';
 
 
 export default class SignUp extends Component {
@@ -18,7 +20,7 @@ export default class SignUp extends Component {
         this.googleSignIn = this.googleSignIn.bind(this);
         this.githubSignIn = this.githubSignIn.bind(this);
     }
-   
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -45,42 +47,65 @@ export default class SignUp extends Component {
 
     async githubSignIn() {
         try {
-          await signInWithGitHub();
+            await signInWithGitHub();
         } catch (error) {
-          this.setState({ error: error.message });
+            this.setState({ error: error.message });
         }
-      }
+    }
 
 
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <h1>
-                        Sign Up to
-                        <Link to="/">Chatty</Link>
-                    </h1>
-                    <p>Fill in the form below to create an account.</p>
-                    <div>
-                        <input placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email}></input>
-                    </div>
-                    <div>
-                        <input placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password"></input>
-                    </div>
-                    <div>
-                        {this.state.error ? <p>{this.state.error}</p> : null}
-                        <button type="submit">Sign up</button>
-                        <p>Or</p>
-                        <button onClick={this.googleSignIn} type="button">
-                            Sign up with Google
-                        </button>
-                        <button type="button" onClick={this.githubSignIn}>
-                            Sign up with GitHub
-                        </button>
-                    </div>
-                    <hr></hr>
-                    <p>Already have an account? <Link to={"/login"}>Login</Link></p>
-                </form>
+                <div class="jumbotron" className="container center">
+                    <Jumbotron>
+                        <Form onSubmit={this.handleSubmit}>
+                            <div className="form-input">
+                                <Form.Group>
+                                    <h1>
+                                        Registrate en
+                                        <Link to="/"> ChatLine</Link>
+                                    </h1>
+                                    <p>Ingresa tus datos para crear tu cuenta.</p>
+                                </Form.Group>
+
+                                <Form.Group>
+                                    <Col sm={7}>
+                                        <Form.Control id="form-input" placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email} />
+                                    </Col>
+                                </Form.Group>
+
+                                <Form.Group>
+                                    <Col sm={7}>
+                                        <Form.Control id="form-input" placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password" />
+                                    </Col>
+
+                                </Form.Group>
+                            </div>
+
+
+
+                            <div class="buttons">
+                                <row>
+                                    {this.state.error ? <p>{this.state.error}</p> : null}
+                                    <Button type="submit">Registrate</Button>
+                                    <hr></hr>
+                                    <p>o</p>
+                                </row>
+                                <row>
+                                    <Button className="mr-3" variant="light" onClick={this.googleSignIn} type="button">
+                                        Registrate con Google
+                                    </Button>
+                                    <Button variant="light" onClick={this.githubSignIn}>
+                                        Registrate con GitHub
+                                    </Button>
+                                </row>
+                            </div>
+                            <br />
+                            <p>Tienes una cuenta? <Link to={"/login"}>Ingresa tu cuenta</Link></p>
+                        </Form>
+                    </Jumbotron>
+                </div>
             </div>
         )
     }

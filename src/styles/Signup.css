@@ -5,9 +5,26 @@
     background: #EF3B36;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #FFFFFF, #EF3B36);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFFFFF, #EF3B36); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
-.Logo {
-    background-image: url(../images/cht.png);
+#row {
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+#row-sign {
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.buttons {
+    margin-top: 5px;
+}
+
+.container {
+    text-align: center;
+}
+
+#form-input{
+    margin-left: 150px;
 }
