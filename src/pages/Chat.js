@@ -8,6 +8,7 @@ import user from '../images/user.png';
 
 
 import { Jumbotron, Button, Form, Col } from "react-bootstrap";
+import NavBarChat from "../components/NavBarChat";
 
 export default class Chat extends Component {
     constructor(props) {
@@ -73,71 +74,77 @@ export default class Chat extends Component {
     render() {
 
         return (
-            <div className="container-ppal">
-                <Jumbotron>
-                    <div>
-                        <h1><Link to=""> ChatLine
-                            <img src={logo} width="100" /><img src={user} width="100" /></Link></h1>
-                        <div>En línea: {" "}<strong className="text-info">{this.state.user.email}</strong>
-                        </div>
-                        <hr></hr>
-                        <div id="container">
-                            <div class="jb">
-                                
-                                <div>
-                                    {this.state.chats.map((chat, index) => {
-                                        return (index % 2 === 0
-                                            ?
+            <div>
+                <div>
+                    <NavBarChat />
+                </div>
 
-                                            <div className="bubble-l">
-                                                <div key={chat.timestamp} className="d-flex align-items-center text-center justify-content-start">
-                                                    <div><img src={user} width="50"/></div>
-                                                    <div className="pr-2">
-                                                        <span>{chat.email} </span>
-                                                        <p className="mb-1">{this.formatDate(chat.timestamp)}</p>
-                                                        <p>{chat.content}</p>
+                <div id="container-ppal">
+                    <Jumbotron>
+                        <div>
+                            <h1><Link to=""> ChatLine
+                                <img src={logo} width="100" /><img src={user} width="100" /></Link></h1>
+                            <div>En línea: {" "}<strong className="text-info">{this.state.user.email}</strong>
+                            </div>
+                            <hr></hr>
+                            <div id="container">
+                                <div class="jb">
+
+                                    <div>
+                                        {this.state.chats.map((chat, index) => {
+                                            return (index % 2 === 0
+                                                ?
+
+                                                <div className="bubble-l">
+                                                    <div key={chat.timestamp} className="d-flex align-items-center text-center justify-content-start">
+                                                        <div><img src={user} width="50" /></div>
+                                                        <div className="pr-2">
+                                                            <span>{chat.email} </span>
+                                                            <p className="mb-1">{this.formatDate(chat.timestamp)}</p>
+                                                            <p>{chat.content}</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            :
+                                                :
 
-                                            <div className="bubble-r">
-                                                <div key={chat.timestamp} className="d-flex align-items-center text-center justify-content-end ">
-                                                    <div className="pr-2">
-                                                        <span>{chat.email}</span>
-                                                        <p className="name mb-1">{this.formatDate(chat.timestamp)}</p>
-                                                        <p className="msg">{chat.content}</p>
+                                                <div className="bubble-r">
+                                                    <div key={chat.timestamp} className="d-flex align-items-center text-center justify-content-end ">
+                                                        <div className="pr-2">
+                                                            <span>{chat.email}</span>
+                                                            <p className="name mb-1">{this.formatDate(chat.timestamp)}</p>
+                                                            <p className="msg">{chat.content}</p>
+                                                        </div>
+                                                        <div><img src={user} width="50" /></div>
                                                     </div>
-                                                    <div><img src={user} width="50"/></div>
                                                 </div>
-                                            </div>
-                                        )
-                                    })}
+                                            )
+                                        })}
+                                    </div>
+
                                 </div>
 
                             </div>
+                            <hr></hr>
+                            <div id="text-msn">
+                                <form onSubmit={this.handleSubmit}>
+                                    <row>
+                                        <Form.Group>
+                                            <Col sm={7}>
+                                                <Form.Control autocomplete="off" id="form-input" className="mr-2" type="text" onChange={this.handleChange} value={this.state.content} required></Form.Control>
+                                            </Col>
+                                        </Form.Group>
+                                        {this.state.error ? <p>{this.state.writeError}</p> : null}
+                                        <Form.Group>
+                                            <Button variant="success" type="submit">Enviar</Button>
+                                        </Form.Group>
+                                    </row>
 
+                                </form>
+                            </div>
                         </div>
-                        <hr></hr>
-                        <div id="text-msn">
-                            <form onSubmit={this.handleSubmit}>
-                                <row>
-                                    <Form.Group>
-                                        <Col sm={7}>
-                                            <Form.Control autocomplete="off" id="form-input" className="mr-2" type="text" onChange={this.handleChange} value={this.state.content}></Form.Control>
-                                        </Col>
-                                    </Form.Group>
-                                    {this.state.error ? <p>{this.state.writeError}</p> : null}
-                                    <Form.Group>
-                                        <Button variant="success" type="submit">Enviar</Button>
-                                    </Form.Group>
-                                </row>
-
-                            </form>
-                        </div>
-                    </div>
-                </Jumbotron>
+                    </Jumbotron>
+                </div>
             </div>
         );
     }

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Col, Form, FormControl, Jumbotron, Button } from "react-bootstrap";
+import { Col, Form, FormControl, Jumbotron, Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { signin, signInWithGoogle, signInWithGitHub } from "../helpers/auth";
+import { signin} from "../helpers/auth";
 import '../styles/Login.css';
 import logo from '../images/cht.png'
+import NavBar from "../components/NavBar";
 
 export default class Login extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ export default class Login extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <div class="jumbotron" className="container center">
           <Jumbotron>
             <Form autoComplete="off" onSubmit={this.handleSubmit}>
@@ -52,13 +54,13 @@ export default class Login extends Component {
 
                 <Form.Group>
                   <Col sm={7}>
-                    <Form.Control id="form-input" placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email} />
+                    <Form.Control id="form-input" placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email} required/>
                   </Col>
                 </Form.Group>
 
                 <Form.Group>
                   <Col sm={7}>
-                    <Form.Control id="form-input" placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password" />
+                    <Form.Control id="form-input" placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password" required/>
                   </Col>
                 </Form.Group>
 

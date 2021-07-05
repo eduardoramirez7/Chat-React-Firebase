@@ -11,6 +11,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import { auth } from './services/firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NotFoundPage from './pages/NotFoundPage';
 
 
 function PrivateRoute({ component: Component, authenticated, ...rest }) {
@@ -69,6 +70,10 @@ class App extends Component {
             <PrivateRoute path="/chat" authenticated={this.state.authenticated} component={Chat}></PrivateRoute>
             <PublicRoute path="/signup" authenticated={this.state.authenticated} component={Signup}></PublicRoute>
             <PublicRoute path="/login" authenticated={this.state.authenticated} component={Login}></PublicRoute>
+            <Route path="/404" component={NotFoundPage} />
+                    <Route path="*">
+                        <Redirect to="/404" />
+                    </Route>
           </Switch>
         </Router>
       </div>

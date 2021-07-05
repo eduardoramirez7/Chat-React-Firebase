@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../helpers/auth';
-import { signInWithGoogle, signInWithGitHub, signInWithFacebook} from "../helpers/auth";
+import { signInWithGoogle, signInWithGitHub, signInWithFacebook } from "../helpers/auth";
 import '../styles/Signup.css';
 import { Jumbotron, Button, Form, Col } from 'react-bootstrap';
 import logo from '../images/cht.png'
+import NavBar from '../components/NavBar';
 
 export default class SignUp extends Component {
 
@@ -55,9 +56,9 @@ export default class SignUp extends Component {
     }
 
     async facebookSignIn() {
-        try{
+        try {
             await signInWithFacebook();
-        } catch(error){
+        } catch (error) {
             this.setState({ error: error.message });
         }
     }
@@ -66,6 +67,7 @@ export default class SignUp extends Component {
     render() {
         return (
             <div>
+                <NavBar />
                 <div class="jumbotron" className="container center">
                     <Jumbotron>
                         <Form onSubmit={this.handleSubmit}>
@@ -78,13 +80,13 @@ export default class SignUp extends Component {
 
                                 <Form.Group>
                                     <Col sm={7}>
-                                        <Form.Control id="form-input" placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email} />
+                                        <Form.Control id="form-input" placeholder="Email" name="email" type="email" onChange={this.handleChange} value={this.state.email} required />
                                     </Col>
                                 </Form.Group>
 
                                 <Form.Group>
                                     <Col sm={7}>
-                                        <Form.Control id="form-input" placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password" />
+                                        <Form.Control id="form-input" placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password} type="password" required/>
                                     </Col>
 
                                 </Form.Group>
