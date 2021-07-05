@@ -1,0 +1,48 @@
+.Logo {
+  background-image: url(../images/cht.png);
+}
+
+.User {
+  background-image: url(../images/user.png);
+}
+
+#container {
+   width:600px; /* or whatever width you want. */
+ /* or whatever width you want. */
+   display: inline-block;
+   margin-top: 10px;
+}
+
+.jb{
+  height: 500px!important;
+  overflow: auto;
+}
+
+.text-msn {
+  text-align: center;
+}
+
+#form-input{
+  margin-left: 150px;
+}
+
+.small {
+	font-size: 5;
+}
+
+.bubble-l {
+  height: 20%;
+  	width: 40%;
+  background-color: powderblue;
+  border-radius: 10%;
+  margin-left: 20px;
+}
+
+.bubble-r {
+  height: 20%;
+  	width: 40%;
+  background-color:gainsboro;
+  border-radius: 10%;
+  margin-left: 320px;
+}
+

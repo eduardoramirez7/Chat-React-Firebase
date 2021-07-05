@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { signup } from '../helpers/auth';
-import { signInWithGoogle, signInWithGitHub } from "../helpers/auth";
+import { signInWithGoogle, signInWithGitHub, signInWithFacebook} from "../helpers/auth";
 import '../styles/Signup.css';
 import { Jumbotron, Button, Form, Col } from 'react-bootstrap';
 import logo from '../images/cht.png'
@@ -19,6 +19,7 @@ export default class SignUp extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.googleSignIn = this.googleSignIn.bind(this);
         this.githubSignIn = this.githubSignIn.bind(this);
+        this.facebookSignIn = this.facebookSignIn.bind(this);
     }
 
     handleChange(event) {
@@ -49,6 +50,14 @@ export default class SignUp extends Component {
         try {
             await signInWithGitHub();
         } catch (error) {
+            this.setState({ error: error.message });
+        }
+    }
+
+    async facebookSignIn() {
+        try{
+            await signInWithFacebook();
+        } catch(error){
             this.setState({ error: error.message });
         }
     }

@@ -1,15 +1,3 @@
-# PASOS PARA LA CREACION DEL CHAT
-
-1. Agregar los paquetes para react: yarn add react-router-dom firebase
-2. Iniciar aplicacion: yarn start
-3. Crear la estructura de carpetas
-4. abrir services/firebase.js y realizar las configuraciones
-5. Crear carpeta routers para la creacion de rutas privadas y publicas
-6. Se crea components/App.js para realizar la configuracion de autenticacion
-7. Ir a helpers/auth.js para el registro de usuarios y contraseñas
-8. Ir a carpeta pages para la implementacion de la vista para crear nuevo usuario (Signup)
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
