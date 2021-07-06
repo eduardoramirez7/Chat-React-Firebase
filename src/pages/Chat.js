@@ -99,10 +99,9 @@ export default class Chat extends Component {
                                                 <div className="bubble-l mt-2">
                                                     <div key={chat.timestamp} className="d-flex align-items-center text-center justify-content-start">
                                                         <div><img src={user} width="50" /></div>
-                                                        <div className="pr-2">
-                                                            <span>{chat.email} </span>                     
+                                                        <div className="pr-2">                    
                                                             <p className="mb-1">{chat.content}</p>
-                                                            <p className="p-email ml-3 mb-1">~{this.state.user.email}</p>
+                                                            <p className="p-email ml-3 mb-1">~{this.state.user.email || "~Anonymous"}</p>
                                                             <p className="p-format">{this.formatDate(chat.timestamp)}</p>
                                                         </div>
                                                     </div>
@@ -112,10 +111,9 @@ export default class Chat extends Component {
 
                                                 <div className="bubble-r mt-2">
                                                     <div key={chat.timestamp} className="d-flex align-items-center text-center justify-content-end ">
-                                                        <div className="pr-2">
-                                                            <span>{chat.email}</span>              
+                                                        <div className="pr-2">            
                                                             <p className="mb-1">{chat.content}</p>
-                                                            <p className="p-email mr-3 mb-1">{chat.email || "~Anonymous"}</p>
+                                                            <p className="p-email mr-3 mb-1">~{chat.email || "~Anonymous"}</p>
                                                             <p className="p-format">{this.formatDate(chat.timestamp)}</p>
                                                         </div>
                                                         <div><img src={user} width="50" /></div>
