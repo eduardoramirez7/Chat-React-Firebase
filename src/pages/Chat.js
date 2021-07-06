@@ -51,7 +51,9 @@ export default class Chat extends Component {
             await db.ref("chats").push({
                 content: this.state.content,
                 timestamp: Date.now(),
-                uid: this.state.user.uid
+                uid: this.state.user.uid,
+                image: this.state.user.photoURL,
+                email: this.state.user.email
             });
             this.setState({ content: '' });
         } catch (error) {
@@ -91,29 +93,30 @@ export default class Chat extends Component {
                                 <div class="jb">
 
                                     <div>
-                                        {this.state.chats.map((chat, index) => {
-                                            return (index % 2 === 0
+                                        {this.state.chats.map((chat) => {
+                                            return (this.state.user.uid === chat.uid
                                                 ?
-
-                                                <div className="bubble-l">
+                                                <div className="bubble-l mt-2">
                                                     <div key={chat.timestamp} className="d-flex align-items-center text-center justify-content-start">
                                                         <div><img src={user} width="50" /></div>
                                                         <div className="pr-2">
-                                                            <span>{chat.email} </span>
-                                                            <p className="mb-1">{this.formatDate(chat.timestamp)}</p>
-                                                            <p>{chat.content}</p>
+                                                            <span>{chat.email} </span>                     
+                                                            <p className="mb-1">{chat.content}</p>
+                                                            <p className="p-email ml-3 mb-1">~{this.state.user.email}</p>
+                                                            <p className="p-format">{this.formatDate(chat.timestamp)}</p>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 :
 
-                                                <div className="bubble-r">
+                                                <div className="bubble-r mt-2">
                                                     <div key={chat.timestamp} className="d-flex align-items-center text-center justify-content-end ">
                                                         <div className="pr-2">
-                                                            <span>{chat.email}</span>
-                                                            <p className="name mb-1">{this.formatDate(chat.timestamp)}</p>
-                                                            <p className="msg">{chat.content}</p>
+                                                            <span>{chat.email}</span>              
+                                                            <p className="mb-1">{chat.content}</p>
+                                                            <p className="p-email mr-3 mb-1">{chat.email || "~Anonymous"}</p>
+                                                            <p className="p-format">{this.formatDate(chat.timestamp)}</p>
                                                         </div>
                                                         <div><img src={user} width="50" /></div>
                                                     </div>
